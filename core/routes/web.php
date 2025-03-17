@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\LinkController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -10,6 +11,8 @@ Route::get('/single-blog/{id}', [HomeController::class, 'singleBlog'])->name('si
 Route::post('/comment-post', [HomeController::class, 'commentPost'])->name('comment.post');
 
 
+
+Route::get('/setting', [BlogController::class, 'setting'])->name('setting');
 
 
 
@@ -31,6 +34,15 @@ Route::post('/blog-store', [BlogController::class, 'storeBlog'])->name('store.bl
 Route::get('/blog-delete/{id}', [BlogController::class, 'deleteBlog'])->name('delete.blog');
 Route::get('/blog-edit/{id}', [BlogController::class, 'editBlog'])->name('edit.blog');
 Route::post('/blog-update/{id}', [BlogController::class, 'updateBlog'])->name('update.blog');
+
+
+// blog links
+Route::get('/link-view', [LinkController::class, 'viewLink'])->name('view.link');
+Route::get('/link-add', [LinkController::class, 'addLink'])->name('add.link');
+Route::post('/link-store', [LinkController::class, 'storeLink'])->name('store.link');
+Route::get('/link-delete/{id}', [LinkController::class, 'deleteLink'])->name('delete.link');
+Route::get('/link-edit/{id}', [LinkController::class, 'editLink'])->name('edit.link');
+Route::post('/link-update/{id}', [LinkController::class, 'updateLink'])->name('update.link');
 
 
 
